@@ -13,6 +13,7 @@ A Model Context Protocol (MCP) server that provides mathematical operations as t
 - [Available Tools](#available-tools)
 - [Contributing](#contributing)
 - [Troubleshooting](#troubleshooting)
+- [License](#license)
 
 ## 🎯 What is Mathematics MCP Server?
 
@@ -408,5 +409,9 @@ python main.py
 # In another terminal, send a test message (requires jq)
 echo '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' | python main.py
 ```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 **Star ⭐ this repo if you find it helpful!**
