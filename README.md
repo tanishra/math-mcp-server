@@ -1,5 +1,7 @@
 # Mathematics MCP Server 🧮
 
+> A comprehensive FastMCP server providing 22 mathematical operations for AI assistants like Claude.
+
 A Model Context Protocol (MCP) server that provides mathematical operations as tools for AI assistants like Claude. This server enables Claude to perform accurate arithmetic calculations through a standardized interface.
 
 ## 📋 Table of Contents
@@ -13,6 +15,7 @@ A Model Context Protocol (MCP) server that provides mathematical operations as t
 - [Available Tools](#available-tools)
 - [Contributing](#contributing)
 - [Troubleshooting](#troubleshooting)
+- [Future Enhancement Ideas](#future-enhancement-ideas)
 - [License](#license)
 
 ## What is Mathematics MCP Server?
@@ -28,7 +31,14 @@ Mathematics MCP Server is a lightweight server that exposes mathematical operati
 
 ## Features
 
-- **8 Mathematical Operations**: Addition, subtraction, multiplication, division, modulus, power, square, and square root
+- **22 Mathematical Operations**: 
+  - **Basic (8)**: Addition, subtraction, multiplication, division, modulus, power, square, square root
+  - **Advanced (2)**: Factorial, absolute value
+  - **Logarithms (2)**: Logarithm (custom base), natural log
+  - **Trigonometry (3)**: Sine, cosine, tangent (degree-based)
+  - **Number Theory (2)**: GCD, LCM
+  - **Statistics (3)**: Mean, median, standard deviation
+  - **Rounding (2)**: Ceiling, floor
 - **Error Handling**: Robust error handling for edge cases (division by zero, negative square roots, etc.)
 - **Comprehensive Logging**: All operations logged to both file and stderr
 - **Type Safety**: Built with Pydantic models for input validation
@@ -72,7 +82,7 @@ Mathematics MCP Server is a lightweight server that exposes mathematical operati
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/mathematics-mcp.git
+git clone https://github.com/tanishra/math-mcp-server.git
 cd mathematics-mcp
 ```
 
@@ -250,6 +260,10 @@ In Claude, try asking:
 - "What's 12345 + 67890?"
 - "Calculate the square root of 144"
 - "What's 25 to the power of 3?"
+- "Calculate the factorial of 10"
+- "What's the sine of 30 degrees?"
+- "Find the GCD of 48 and 18"
+- "Calculate the mean of these numbers: 10, 20, 30, 40, 50"
 
 Claude should use the Mathematics MCP tools to provide accurate answers.
 
@@ -318,6 +332,103 @@ Input: {"a": 144}
 Output: {"status": "success", "operation": "sqrt", "result": 12.0}
 ```
 *Note: Throws error on negative numbers*
+
+### 9. Factorial (`factorial`)
+```python
+Input: {"a": 5}
+Output: {"status": "success", "operation": "factorial", "result": 120}
+```
+*Note: Only works with non-negative integers*
+
+### 10. Absolute Value (`absolute`)
+```python
+Input: {"a": -15}
+Output: {"status": "success", "operation": "absolute", "result": 15}
+```
+
+### 11. Logarithm (`logarithm`)
+```python
+Input: {"value": 100, "base": 10}
+Output: {"status": "success", "operation": "logarithm", "result": 2.0}
+```
+*Note: Default base is 10 if not specified*
+
+### 12. Natural Logarithm (`natural_log`)
+```python
+Input: {"a": 2.718281828}
+Output: {"status": "success", "operation": "natural_log", "result": 1.0}
+```
+*Note: Uses base e (approximately 2.718)*
+
+### 13. Sine (`sine`)
+```python
+Input: {"angle": 90}
+Output: {"status": "success", "operation": "sine", "result": 1.0}
+```
+*Note: Input angle in degrees*
+
+### 14. Cosine (`cosine`)
+```python
+Input: {"angle": 0}
+Output: {"status": "success", "operation": "cosine", "result": 1.0}
+```
+*Note: Input angle in degrees*
+
+### 15. Tangent (`tangent`)
+```python
+Input: {"angle": 45}
+Output: {"status": "success", "operation": "tangent", "result": 1.0}
+```
+*Note: Input angle in degrees, undefined at 90°, 270°, etc.*
+
+### 16. Greatest Common Divisor (`gcd`)
+```python
+Input: {"a": 48, "b": 18}
+Output: {"status": "success", "operation": "gcd", "result": 6}
+```
+*Note: Both numbers must be integers*
+
+### 17. Least Common Multiple (`lcm`)
+```python
+Input: {"a": 12, "b": 18}
+Output: {"status": "success", "operation": "lcm", "result": 36}
+```
+*Note: Both numbers must be integers*
+
+### 18. Mean (`mean`)
+```python
+Input: {"numbers": [10, 20, 30, 40, 50]}
+Output: {"status": "success", "operation": "mean", "result": 30.0}
+```
+*Note: Calculates average of all numbers in the list*
+
+### 19. Median (`median`)
+```python
+Input: {"numbers": [1, 3, 5, 7, 9]}
+Output: {"status": "success", "operation": "median", "result": 5}
+```
+*Note: Middle value when sorted; average of two middle values for even-length lists*
+
+### 20. Standard Deviation (`standard_deviation`)
+```python
+Input: {"numbers": [2, 4, 4, 4, 5, 5, 7, 9]}
+Output: {"status": "success", "operation": "standard_deviation", "result": 2.138}
+```
+*Note: Uses sample standard deviation (n-1); requires at least 2 numbers*
+
+### 21. Ceiling (`ceiling`)
+```python
+Input: {"a": 3.2}
+Output: {"status": "success", "operation": "ceiling", "result": 4}
+```
+*Note: Always rounds up*
+
+### 22. Floor (`floor`)
+```python
+Input: {"a": 3.8}
+Output: {"status": "success", "operation": "floor", "result": 3}
+```
+*Note: Always rounds down*
 
 ## Contributing
 
@@ -409,6 +520,14 @@ python main.py
 # In another terminal, send a test message (requires jq)
 echo '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' | python main.py
 ```
+
+### Future Enhancement Ideas
+- Add complex number support
+- Implement matrix operations
+- Add unit conversion tools
+- Support for symbolic math (using SymPy)
+- Inverse trigonometric functions (arcsin, arccos, arctan)
+- Hyperbolic functions (sinh, cosh, tanh)
 
 ## License
 
