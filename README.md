@@ -88,11 +88,18 @@ pip install uv
 ```
 
 ### Step 3: Install Dependencies
+
+The project uses `pyproject.toml` for dependency management:
 ```bash
-# uv will automatically create a virtual environment and install dependencies
+# Install all dependencies (uv automatically reads pyproject.toml)
 uv sync
 
-# Or if you don't have a pyproject.toml, install manually
+# Or using pip
+pip install -e .
+```
+
+Alternatively, you can install dependencies directly:
+```bash
 uv pip install fastmcp pydantic
 ```
 
