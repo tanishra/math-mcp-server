@@ -15,7 +15,7 @@ A Model Context Protocol (MCP) server that provides mathematical operations as t
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
 
-## 🎯 What is Mathematics MCP Server?
+## What is Mathematics MCP Server?
 
 Mathematics MCP Server is a lightweight server that exposes mathematical operations through the Model Context Protocol (MCP). It allows AI assistants to perform precise calculations by calling dedicated tools rather than relying on their internal reasoning capabilities.
 
@@ -26,7 +26,7 @@ Mathematics MCP Server is a lightweight server that exposes mathematical operati
 - **Extensibility**: Easy to add new mathematical operations
 - **Logging**: All operations are logged for debugging and audit purposes
 
-## ✨ Features
+## Features
 
 - **8 Mathematical Operations**: Addition, subtraction, multiplication, division, modulus, power, square, and square root
 - **Error Handling**: Robust error handling for edge cases (division by zero, negative square roots, etc.)
@@ -34,7 +34,7 @@ Mathematics MCP Server is a lightweight server that exposes mathematical operati
 - **Type Safety**: Built with Pydantic models for input validation
 - **MCP Compliant**: Fully compatible with the Model Context Protocol standard
 
-## 🔧 How It Works
+## How It Works
 ```
 ┌─────────────────┐
 │  Claude Desktop │
@@ -63,7 +63,7 @@ Mathematics MCP Server is a lightweight server that exposes mathematical operati
 4. **Result** is returned to Claude in structured format
 5. **Logging** records the operation for debugging
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 
@@ -123,7 +123,7 @@ You should see:
 Starting Mathematics MCP Server...
 ```
 
-## 🚀 Usage
+## Usage
 
 ### Testing with MCP Inspector (Recommended)
 
@@ -149,7 +149,7 @@ The server will start and listen for MCP protocol messages on stdin/stdout.
 
 See the [Integration with Claude Desktop](#integration-with-claude-desktop) section below.
 
-## 🖥️ Integration with Claude Desktop
+## Integration with Claude Desktop
 
 ### Quick Installation (Recommended)
 
@@ -266,7 +266,7 @@ uv run fastmcp dev main.py
 # Try manual configuration following the steps above
 ```
 
-## 🛠️ Available Tools
+## Available Tools
 
 ### 1. Addition (`add`)
 ```python
@@ -319,7 +319,7 @@ Output: {"status": "success", "operation": "sqrt", "result": 12.0}
 ```
 *Note: Throws error on negative numbers*
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -357,7 +357,7 @@ Contributions are welcome! Here's how you can help:
 ```
 7. Open a Pull Request
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Server Not Appearing in Claude Desktop
 
@@ -410,7 +410,7 @@ python main.py
 echo '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' | python main.py
 ```
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
